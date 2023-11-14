@@ -1,42 +1,67 @@
-const startButton = document.getElementById('start-btn')
-const questionContainerElement = document.getElementById('question-container')
-const questionElement = document.getElementById('question')
-const answerButtonElement = document.getElementById('answer-buttons')
+var startButton = document.getElementById('start-button')
+var nextButton = document.getElementById('next-button')
+var answerElements = document.getElementById('answer-buttons')
+var quizContainer = document.getElementById('quiz-container')
 
-let shuffledQuestions, currentQuestionIndex
+startButton.addEventListener('click', startQuiz);
 
-startButton.addEventListener('click' , startGame)
-
-function startGame() {
-    console.log('Started')
-    startButton.classList.add('hide')
-    shuffledQuestions = questions.sort(() => Math.random() - .5)
-    currentQuestionIndex = 0
-    questionContainerElement.classList.remove('hide')
-    setNextQuestion()
-}
-
-function setNextQuestion () {
-    showQuestion(shuffledQuestions[currentQuestionIndex])
-}
-
-
-function showQuestion(question) {
-    questionElement.innerText = question.question
-}
-
-function selectAnswer() {
+ function startQuiz() {
+    console.log("Quiz started")
+    startButton.classList.add('hidden')
+    questionElement.clistlist.remove('hidden')
 
 }
 
-const questions = [
+// Quesitons 
+const quizQuestions = [
     {
-        question: "What is the proper syntax for a closing tag?",
-        answers: [ 
-            { text: '</head>', correct: true},
-            { text: '<head>' , correct: false},
-            { text: '<\head>', correct: false},
-            { text: 'None of the above' , correct: false}
-        ]
-    }
-]
+      question: "What is the syntax of a closing tag?",
+      answers: {
+        a: "</head>",
+        b: "<head>",
+        c: "<\head>",
+        d: "None of the above"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "What keyword is used to define a varible in JavaScript?",
+      answers: {
+        a: "let",
+        b: "var",
+        c: "const",
+        d: "All of the above"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "What CSS property makes the color of the page change?",
+      answers: {
+        a: "color",
+        b: "text-color",
+        c: "font",
+        d: "background-color"
+      },
+      correctAnswer: "a"
+    },
+    {
+        question: "Which built-in method removes the last element from an array and returns that element?",
+        answers: {
+          a: "last()",
+          b: "unshift()",
+          c: "pop()",
+          d: "get()"
+        },
+        correctAnswer: "c"
+      },
+      {
+        question: "What does HTML stands for?",
+        answers: {
+          a: "Hypertext Machine Language ",
+          b: "Hypertext Markup Language",
+          c: "HyperTitle Mild Language",
+          d: "All of the above"
+        },
+        correctAnswer: "b"
+      }
+  ];
